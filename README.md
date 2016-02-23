@@ -1,5 +1,5 @@
 # react-compared-with-vanilla-js
-Samples for internal workshop with HDQC team
+Samples for inter-office presentation with HDQC team
 
 ## Getting Started
 
