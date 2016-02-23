@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import randomWord from 'random-words';
 
-export default class SingleComponent extends Component {
+import NestedComponent from '../components/nestedComponent';
+
+export default class ContainerWithState extends Component {
   constructor(props) {
   	super(props);
   	this.state = {word: 'Hello'};
@@ -12,21 +14,15 @@ export default class SingleComponent extends Component {
     this.setState({word: newRandomWord});
   }
   render() {
+  	const { word } = this.state;
     return (
       <div>
 		<div className="panel panel-default">
 			<div className="panel-heading">
-				Single Component
+				Container / Component
 			</div>
 	  		<div className="panel-body">
-	  			<ul className="list-group">
-		  		 	<li className="list-group-item"><span>{this.state.word}</span></li>
-		  		 	<li className="list-group-item">
-		  		 		<button id="wordButton" type="button" className="btn btn-primary" onClick={this._handleButtonClick}>
-	  						Generate New Word
-						</button>
-					</li>
-				</ul>
+	  			<NestedComponent word={word} handleButtonClick={this._handleButtonClick} />
 	  		</div>
 	  	</div>
       </div>
