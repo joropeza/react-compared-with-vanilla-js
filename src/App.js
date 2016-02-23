@@ -15,7 +15,9 @@ const reducer = combineReducers({
 });
 
 const store = compose(
-	applyMiddleware(thunk))(createStore)(reducer);
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+)(createStore)(reducer);
 
 export default class App extends Component {
   render() {
